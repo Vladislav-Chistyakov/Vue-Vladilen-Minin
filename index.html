@@ -9,27 +9,15 @@
 </head>
 <body>
   
-
-  <div class="container" id="app">
-    <div class="card">
-      <h1>{{ appTitle }}</h1>
-      <div class="form-control">
-        <input :value="inputValue" :placeholder="placeholder" type="text" @input="inputChangeHandler" />
-        <h2>value = {{ inputValue }}</h2>
-        <button class="btn" @click="clickBtn">Добавить</button>
-        <hr/>
-        <ol class="list">
-          <li class="list-item" v-for="myNote in notes">
-            {{ myNote }}
-          </li>
-        </ol>
+  <div class="container pt-5" id="app">
+    <div class="card center">
+      <h1>{{ title }} {{ counter }}</h1>
+      <div class="">
+        <button class="btn primary">Добавить</button>
+        <button class="btn danger">Вычесть</button>
       </div>
     </div>
   </div>
-
-
-
-
 
 
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
