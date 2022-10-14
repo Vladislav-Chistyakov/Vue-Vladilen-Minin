@@ -19,15 +19,20 @@
           v-on:input="inputChange" 
           v-bind:value="inputValue" 
           v-bind:placeholder="placeholder" 
+          v-on:keypress.enter="clickBtn"
           type="text"
         />
       </div>
       <h2>Итог = "{{ inputValue }}"</h2>
       <button @click="clickBtn" class="btn">Добавить</button>
       <hr>
-      <ul class="list">
-        <li class="list-item" v-for="note in notes" :key="note">{{ note }}</li>
+      <ul class="list" v-if="notes.length !== 0">
+        <li class="list-item" v-for="(note, index) in notes" :key="note">
+          ({{ index }}) {{ note }}
+          <button v-on:click="removeNote(index)" class="btn danger">Удалить</button>
+        </li>
       </ul>
+      <div class="" v-else-if="notes.length === 0">Заметок пока нет. Следует добавить</div>
     </div>
   </div>
 
